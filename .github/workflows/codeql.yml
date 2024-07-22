@@ -4,28 +4,23 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    # The branches below must be a subset of the branches above
     branches: [ main ]
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: '0 0 * * 1'
 
 jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
+
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'javascript', 'python' ]
-        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
-        # For swift, use 'swift'
+        language: [ 'javascript', 'html' ]
+
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
