@@ -131,5 +131,11 @@ app.get('/', (req, res) => {
 app.listen(3000, () => {
     console.log('Server running on port 3000');
 });
-username "sandeep"
-password" disply"
+const crypto = require('crypto');
+
+function generateToken() {
+    return Math.random().toString(36).substring(2);
+}
+
+console.log(generateToken());
+
