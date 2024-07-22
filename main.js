@@ -118,3 +118,16 @@ keys.forEach(key => {
   key.addEventListener("click", handleKeyPress);
   key.addEventListener("click", evaluate);
 });
+
+// Vulnerable XSS example
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    const userInput = req.query.input; // Get user input from query parameters
+    res.send(`<h1>${userInput}</h1>`); // Reflect the user input in the HTML response
+});
+
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
