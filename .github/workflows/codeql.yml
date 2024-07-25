@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'javascript', 'html' ]
+        language: [ 'dotnet' ]
 
     steps:
     - name: Checkout repository
